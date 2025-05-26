@@ -1,58 +1,49 @@
 <?php
+
 namespace App\Controllers;
-Use App\Models\usuario_Model;
-use CodeIgniter\Controller;
 
-class usuario_controller extends Controller{
+use App\Models\usuario_Model;
 
-    public function __construct(){
-           helper(['form', 'url']);
+class usuario_controller extends BaseController
+{
 
-    }
-    public function create() {
-        
-         $dato['titulo']='Registro'; 
-         echo view('head',$dato);
-         echo view('navbar');
-         echo view('registro');
-         echo view('footer');
-      }
- 
-    public function formValidation() {
-             
-        $input = $this->validate([
+    public function index()
+    {
+        helper(['form']);
+
+        // Reglas de validación
+        $rules = [
             'nombre'   => 'required|min_length[3]',
-            'apellido' => 'required|min_length[3]|max_length[25]',
-            'usuario'  => 'required|min_length[3]',
-            'email'    => 'required|min_length[4]|max_length[100]|valid_email|is_unique[usuarios.email]',
-            'pass'     => 'required|min_length[3]|max_length[10]'
-        ],
-        
-       );
-        $formModel = new usuario_Model();
-     
-        if (!$input) {
-               $data['titulo']='Registro'; 
-                echo view('head',$data);
-                echo view('navbar');
-                echo view('registro', ['validation' => $this->validator]);
-                echo view('footer');
+            'apellido' => 'required|min_length[3]',
+            'usuario'  => 'required|is_unique[usuarios.usuario]',
+            'email'    => 'required|valid_email|is_unique[usuarios.email]',
+            'pass'     => 'required|min_length[6]'
+        ];
 
+        if (!$this->validate($rules)) {
+            // Si no pasa la validación, mostrar formulario
+            $data['titulo'] = 'Registro';
+            $data['validation'] = $this->validator;
+
+            echo view('head', $data);
+            echo view('navbar');
+            echo view('registro', $data);
+            echo view('footer');
         } else {
-            $formModel->save([
-                'nombre' => $this->request->getVar('nombre'),
-                'apellido'=> $this->request->getVar('apellido'),
-                'usuario'=> $this->request->getVar('usuario'),
-                'email'=> $this->request->getVar('email'),
-                'pass' => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT)
-              //password_hash() crea un nuevo hash de contraseña usando un algoritmo de hash de único sentido.
-            ]);  
-             
-            // Flashdata funciona solo en redirigir la función en el controlador en la vista de carga.
-               session()->setFlashdata('success', 'Usuario registrado con exito');
-                return redirect()->to('/login');
-              // return $this->response->redirect('/registro');
-      
+            // Si pasa validación, guardar usuario
+            $usuarioModel = new usuario_Model();
+        
+            $usuarioModel->save([
+                'nombre'     => $this->request->getVar('nombre'),
+                'apellido'   => $this->request->getVar('apellido'),
+                'usuario'    => $this->request->getVar('usuario'),
+                'email'      => $this->request->getVar('email'),
+                'pass'       => password_hash($this->request->getVar('pass'), PASSWORD_DEFAULT),
+                'perfil_id'  => 2, // Valor por defecto si aplica
+                'baja'       => 0  // Usuario activo por defecto
+            ]);
+
+            return redirect()->to('/login');
         }
     }
 }

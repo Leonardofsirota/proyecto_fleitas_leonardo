@@ -25,7 +25,10 @@ foreach ($carrito as $item) {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav nav-pills">
         <li class="nav-item active">
-          <a class="nav-link me-3 custom-link" href="productos">Productos</a>
+          <a class="nav-link me-3 custom-link" href="index">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-3" href="productos">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link me-3" href="comercializacion">Comercialización</a>
@@ -44,6 +47,7 @@ foreach ($carrito as $item) {
 
     <!-- Desplegable del navbar para admin -->
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="index">Inicio</a>
       <a class="dropdown-item" href="productos">Productos</a>
       <a class="dropdown-item" href="comercializacion">Comercialización</a>
       <a class="dropdown-item" href="login">Ingreso</a>
@@ -59,8 +63,11 @@ foreach ($carrito as $item) {
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav nav-pills">
-        <li class="nav-item active">
-          <a class="nav-link me-3 custom-link" href="productos">Productos</a>
+      <li class="nav-item active">
+          <a class="nav-link me-3 custom-link" href="index">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-3" href="productos">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link me-3" href="comercializacion">Comercialización</a>
@@ -81,6 +88,7 @@ foreach ($carrito as $item) {
 
     <!-- Desplegable del navbar para cliente -->
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="index">Inicio</a>
       <a class="dropdown-item" href="productos">Productos</a>
       <a class="dropdown-item" href="comercializacion">Comercialización</a>
       <a class="dropdown-item" href="<?= base_url('carrito/ver') ?>">Carrito (<?= $totalCantidad ?>)</a>
@@ -93,8 +101,11 @@ foreach ($carrito as $item) {
     <!-- navbar para clientes no logueados --> 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav nav-pills">
-        <li class="nav-item active">
-          <a class="nav-link me-3 custom-link" href="productos">Productos</a>
+      <li class="nav-item active">
+          <a class="nav-link me-3 custom-link" href="index">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link me-3" href="productos">Productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link me-3" href="comercializacion">Comercialización</a>
@@ -110,6 +121,7 @@ foreach ($carrito as $item) {
 
     <!-- Desplegable del navbar para clientes no logueados -->
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="index">Inicio</a>
       <a class="dropdown-item" href="productos">Productos</a>
       <a class="dropdown-item" href="comercializacion">Comercialización</a>
       <a class="dropdown-item" href="login">Ingreso</a>

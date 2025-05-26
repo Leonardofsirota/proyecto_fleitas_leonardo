@@ -15,7 +15,7 @@ class login_controller extends BaseController
          echo view('login');
          echo view('footer');
     } 
-  
+
     public function auth()
     {
         $session = session(); //el objeto de sesión se asigna a la variable $session

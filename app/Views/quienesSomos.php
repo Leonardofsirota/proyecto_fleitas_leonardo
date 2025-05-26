@@ -91,6 +91,5 @@
     
     </div>
 
-    <a href="index" style="text-align: center;">Volver</a>
 
 </section>

@@ -21,7 +21,6 @@
             <p>Los términos de uso se rigen por las leyes de la República Argentina. En caso de disputas, se someterá a la jurisdicción de los tribunales de dicha soberanía.</p>
             <br>
         </div>     
-        <a href="index" style="text-align: center;"> Volver </a>
     </div>
 </div>
 

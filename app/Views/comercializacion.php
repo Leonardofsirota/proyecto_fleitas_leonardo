@@ -62,7 +62,6 @@
         <br>  
         </div>
         <div style="text-align: center;">   
-        <a href="index"> Volver </a>
         </div>
     </section>
     
