@@ -97,7 +97,6 @@
         <br>
     </div>
     
-    <a href="index" style="text-align: center;"> Volver <br><br></a>
 
     
     
