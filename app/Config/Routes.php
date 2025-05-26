@@ -33,21 +33,24 @@ $routes->get('/', 'Home::index'); /* controlador-->funcion */
 $routes->get('/index', 'Home::index');
 $routes->get('/quienesSomos', 'Home::quienesSomos');
 $routes->get('/contacto', 'Home::contacto');
-$routes->get('/productos', 'Home::productos');
+//$routes->get('/productos', 'Home::productos');
 $routes->get('/terminosdeuso', 'Home::terminosdeuso');
 $routes->get('/comercializacion', 'Home::comercializacion');
 
+$routes->get('/productos', 'ProductoController::index');
+$routes->view('/productosList','lista_productos');
+
+
+
 /* Rutas del registro */
 $routes->get('/registro', 'Home::registro');
-$routes->get('/registro','usuario_controller::create');
-$routes->post('/enviar-form','usuario_controller::formValidation');
+//$routes->get('/registro','usuario_controller::create');
+$routes->post('/enviar-form','usuario_controller::index');
 
 /* Rutas del login */
 $routes->get('/login', 'Home::login');
 $routes->post('/enviarlogin','login_controller::auth');
 $routes->get('/logout', 'login_controller::logout');
-
-
 
 
 /*
